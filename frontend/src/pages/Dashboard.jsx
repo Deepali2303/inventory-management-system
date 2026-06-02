@@ -46,19 +46,31 @@ export default function Dashboard() {
       <div className="grid grid-4" style={{ marginBottom: '1.75rem' }}>
         <div className="card stat-card">
           <div className="stat-label">Total Products</div>
-          <div className="stat-value">{summary.total_products}</div>
+          <div className="stat-value-row">
+            <div className="stat-value">{summary.total_products}</div>
+            <div className="stat-trend">+4.2%</div>
+          </div>
         </div>
         <div className="card stat-card">
           <div className="stat-label">Total Customers</div>
-          <div className="stat-value">{summary.total_customers}</div>
+          <div className="stat-value-row">
+            <div className="stat-value">{summary.total_customers}</div>
+            <div className="stat-trend">+2.1%</div>
+          </div>
         </div>
         <div className="card stat-card">
           <div className="stat-label">Total Orders</div>
-          <div className="stat-value">{summary.total_orders}</div>
+          <div className="stat-value-row">
+            <div className="stat-value">{summary.total_orders}</div>
+            <div className="stat-trend">+1.5%</div>
+          </div>
         </div>
         <div className="card stat-card">
           <div className="stat-label">Low Stock Items</div>
-          <div className="stat-value">{summary.low_stock_products.length}</div>
+          <div className="stat-value-row">
+            <div className="stat-value">{summary.low_stock_products.length}</div>
+            <div className="stat-trend negative">(Alert)</div>
+          </div>
         </div>
       </div>
 

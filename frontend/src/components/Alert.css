@@ -1,38 +1,45 @@
-/* ─── Alert Component ─── */
-.alert {
-  padding: 0.85rem 1.1rem;
-  border-radius: var(--radius-sm);
-  font-size: 0.9rem;
+.alert-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
   font-weight: 500;
-  margin-bottom: 1rem;
-  animation: alertSlideIn 0.3s ease;
-  border-left: 4px solid;
+  border: 1px solid;
+  /* Slide in, wait, then fade out just before React unmounts it */
+  animation: slideInToast 0.3s cubic-bezier(0.16, 1, 0.3, 1), fadeOutToast 0.3s ease-out 2.7s forwards;
+  box-shadow: var(--shadow-md);
 }
 
 .alert-success {
-  background: var(--success-light);
-  color: #065f46;
-  border-left-color: var(--success);
+  background-color: #F0FDF4;
+  color: #166534;
+  border-color: #BBF7D0;
 }
 
 .alert-error {
-  background: var(--danger-light);
-  color: #991b1b;
-  border-left-color: var(--danger);
+  background-color: #FEF2F2;
+  color: #991B1B;
+  border-color: #FECACA;
 }
 
-.alert .btn {
-  padding: 0.3rem 0.65rem;
-  font-size: 0.78rem;
-}
-
-@keyframes alertSlideIn {
+@keyframes slideInToast {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fadeOutToast {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
